@@ -1,5 +1,5 @@
 server:
-  applicationContextPath: /base-dropwizard/v1
+  applicationContextPath: /example-dropwizard/v1
   applicationConnectors:
     - type: http
       port: 8080
