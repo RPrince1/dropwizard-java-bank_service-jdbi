@@ -1,0 +1,35 @@
+{
+  "family": "basedw-AwsTask-uat",
+  "containerDefinitions": [
+    {
+      "name": "basedw-AwsTask-uat",
+      "image": "morrisons/docker-image:uat",
+      "cpu": 512,
+      "memory": 1024,
+      "entryPoint": ["/bin/bash"],
+      "command": ["/app/mus/service/bin/runApp", "/app/mus/service/config/application_UAT.yml"],
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "xxwmm_env",
+          "value": "UAT"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "log-group-uat",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "service"
+        }
+      }
+    }
+  ]
+}

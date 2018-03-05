@@ -1,0 +1,35 @@
+{
+  "family": "basedw-AwsTask-prd",
+  "containerDefinitions": [
+    {
+      "name": "basedw-AwsTask-prd",
+      "image": "morrisons/docker-image:prd",
+      "cpu": 512,
+      "memory": 1024,
+      "entryPoint": ["/bin/bash"],
+      "command": ["/app/mus/service/bin/runApp", "/app/mus/service/config/application_PRD.yml"],
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "xxwmm_env",
+          "value": "PRD"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "log-group-prd",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "service"
+        }
+      }
+    }
+  ]
+}

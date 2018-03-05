@@ -1,0 +1,1 @@
+java -Xmx768m -Xms512m -jar /app/mus/service/bin/standalone.jar server $1

@@ -1,0 +1,35 @@
+{
+  "family": "basedw-AwsTask-dev",
+  "containerDefinitions": [
+    {
+      "name": "basedw-AwsTask-dev",
+      "image": "morrisons/docker-image:dev",
+      "cpu": 512,
+      "memory": 1024,
+      "entryPoint": ["/bin/bash"],
+      "command": ["/app/mus/service/bin/runApp", "/app/mus/service/config/application_DEV.yml"],
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "xxwmm_env",
+          "value": "DEV"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "log-group-dev",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "service"
+        }
+      }
+    }
+  ]
+}

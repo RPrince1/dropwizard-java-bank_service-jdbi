@@ -1,0 +1,19 @@
+{
+  "cluster": "prod-ECS-ECSCluster-W68V9ZHCS399",
+  "serviceName": "basedw-AwsService-prd",
+  "taskDefinition": "basedw-AwsTask-prd",
+  "desiredCount": 2,
+  "clientToken": "abc123",
+  "role": "ecsServiceRole",
+  "loadBalancers": [
+    {
+      "targetGroupArn": "tbc",
+      "containerName": "basedw-AwsTask-prd",
+      "containerPort": 8080
+    }
+  ],
+  "deploymentConfiguration": {
+    "maximumPercent": 100,
+    "minimumHealthyPercent": 50
+  }
+}
