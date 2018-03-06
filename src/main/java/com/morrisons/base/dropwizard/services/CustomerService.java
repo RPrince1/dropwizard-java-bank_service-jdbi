@@ -20,8 +20,6 @@ public class CustomerService {
 
     public CustomerTransactions getCustomerTransactions(String accountId) {
 
-//        CustomerDao dao = getApplicationInjector().getInstance(CustomerDao.class);
-
         List<CustomerTransaction> transactionList = customerDao.getCustomerTransactions(accountId);
         if (transactionList.isEmpty()) {
             throw new ApplicationException(ErrorSequences.NO_TRANSACTIONS_FOUND);
@@ -30,8 +28,6 @@ public class CustomerService {
     }
 
     public void addTransaction(CustomerTransaction transaction) {
-//        CustomerDao dao = getApplicationInjector().getInstance(CustomerDao.class);
-
         customerDao.addTransaction(transaction);
     }
 }
