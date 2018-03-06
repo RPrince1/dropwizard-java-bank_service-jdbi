@@ -10,7 +10,7 @@ server:
 
 database:
   driverClass: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/exampledw
+  url: jdbc:postgresql://localhost:5999/postgres
   user: postgres
   password: postgres
   properties:
