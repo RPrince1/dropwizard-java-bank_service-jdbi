@@ -1,8 +1,7 @@
 package steps;
-
+/*
 import com.morrisons.base.dropwizard.dao.CustomerDao;
-import com.morrisons.base.dropwizard.model.CustomerTransaction;
-import com.morrisons.base.dropwizard.model.CustomerTransactions;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
@@ -37,7 +36,7 @@ public class DbSteps {
         String accountId = (String) sharedData.variables.get(ACCOUNT_ID);
 
         CustomerDao customerDao = getApplicationInjector().getInstance(CustomerDao.class);
-        int dbRecordCount = customerDao.getCustomerTransactions(accountId).size();
+        int dbRecordCount = customerDao.getBanks(accountId).size();
         assertEquals(count, dbRecordCount);
     }
 
@@ -55,4 +54,4 @@ public class DbSteps {
 
         customerDao.addTransaction(txnToSave);
     }
-}
+}*/

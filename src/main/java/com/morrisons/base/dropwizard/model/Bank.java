@@ -11,10 +11,16 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
-public class CustomerTransaction {
+public class Bank {
 
+    private String name;
+    private String address;
+    private int sortcode;
+    private int branchNumber;
+
+    /*
     private UUID transactionId;
     private String accountId;
     private BigDecimal amount;
-
+    */
 }

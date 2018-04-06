@@ -22,7 +22,7 @@ allprojects {
 task jarIt(type: OneJar) {
     mainClass = 'com.morrisons.base.dropwizard'
 }
-
+ 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.5.1'
 }

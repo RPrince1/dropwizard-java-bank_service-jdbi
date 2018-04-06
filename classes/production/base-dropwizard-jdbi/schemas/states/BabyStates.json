@@ -1,0 +1,42 @@
+[
+  {
+    "pageIndex": 1,
+    "clubType": 1,
+    "name": "root",
+    "url": "/",
+    "parent": "",
+    "abstract": true
+  },
+  {
+    "pageIndex": 2,
+    "clubType": 1,
+    "name": "home",
+    "url": "",
+    "abstract": false,
+    "parent": "root"
+  },
+  {
+    "pageIndex": 3,
+    "clubType": 1,
+    "name": "login",
+    "url": "^/login",
+    "abstract": false,
+    "parent": "root"
+  },
+  {
+    "pageIndex": 4,
+    "clubType": 1,
+    "name": "register",
+    "url": "^/register",
+    "abstract": false,
+    "parent": "root"
+  },
+  {
+    "pageIndex": 5,
+    "clubType": 1,
+    "name": "register-account",
+    "url": "^/register/account",
+    "abstract": false,
+    "parent": "root"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "pageIndex": 9999,
+    "clubType": 2,
+    "name": "external-account",
+    "url": "http://localhost:9010/more/account.html",
+    "external": true
+  },
+  {
+    "pageIndex": 1,
+    "clubType": 2,
+    "name": "root",
+    "url": "/",
+    "parent": "",
+    "abstract": true
+  },
+  {
+    "pageIndex": 2,
+    "clubType": 2,
+    "name": "landingPage",
+    "url": "",
+    "abstract": false,
+    "parent": "root"
+  },
+  {
+    "pageIndex": 3,
+    "clubType": 2,
+    "name": "login",
+    "url": "^/login",
+    "abstract": false,
+    "parent": "root"
+  },
+  {
+    "pageIndex": 4,
+    "clubType": 2,
+    "name": "register",
+    "url": "^/register",
+    "abstract": false,
+    "parent": "root"
+  },
+  {
+    "pageIndex": 5,
+    "clubType": 2,
+    "name": "register-account",
+    "url": "^/register/account",
+    "abstract": false,
+    "parent": "root"
+  },
+  {
+    "pageIndex": 6,
+    "clubType": 2,
+    "name": "register-club",
+    "url": "^/register/club",
+    "abstract": false,
+    "parent": "root"
+  },
+  {
+    "pageIndex": 7,
+    "clubType": 2,
+    "name": "personal-details",
+    "url": "^/personal/details",
+    "abstract": false,
+    "parent": "root"
+  }
+]

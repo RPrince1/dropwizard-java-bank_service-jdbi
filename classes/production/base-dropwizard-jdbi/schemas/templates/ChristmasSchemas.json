@@ -1,0 +1,875 @@
+[
+  {
+    "pageIndex": 1,
+    "clubType": 2,
+    "name": "Root",
+    "url": "",
+    "formType": "",
+    "formTemplate": [
+    ],
+    "schemaTemplate": {
+    },
+    "view": {
+      "templateUrl": "Pages/LandingPage.html"
+    }
+  },
+  {
+    "pageIndex": 2,
+    "clubType": 2,
+    "name": "Root",
+    "url": "",
+    "formType": "",
+    "formTemplate": [
+    ],
+    "schemaTemplate": {
+    },
+    "view": {
+      "templateUrl": "Pages/LandingPage.html"
+    }
+  },
+  {
+    "pageIndex": 3,
+    "clubType": 2,
+    "name": "Login",
+    "url": "",
+    "formType": "",
+    "formTemplate": [
+    ],
+    "schemaTemplate": {
+    },
+    "view": {
+      "templateUrl": "Pages/Login.html"
+    }
+  },
+  {
+    "pageIndex": 4,
+    "clubType": 2,
+    "name": "Register",
+    "url": "",
+    "formType": "1",
+    "formTemplate": [
+      {
+        "key": "title"
+      },
+      {
+        "key": "firstName"
+      },
+      {
+        "key": "lastName"
+      },
+      {
+        "key": "email"
+      },
+      {
+        "key": "password",
+        "type": "password"
+      },
+      {
+        "key": "confirmPassword",
+        "type": "password"
+      },
+      {
+        "key": "postcode"
+      },
+      {
+        "type": "help",
+        "helpvalue": "By registering, you are happy for us to send you our exclusive offers and promotions for Morrisons More.<br><br>We don't share your information with anyone outside our group to use for their own marketing. Through your Morrisons More card, we look at how you shop to identify relevant products and communications.<br><br>We think you will love these great offers but you can stop receiving them at any time by ammending your preferences or by calling us on 0345 611 6111.<br><br>We pride ourselves on getting the things that matter most right.<br><br>We believe this principle extends to how we use and handle your information as much as it does to our groceries. Please see our <a href='http://your.morrisons.com/Privacy-Policy/'>Privacy Policy</a> for full details.<br><br>By submitting this form you agree to the Morrisons More <a href='http://your.morrisons.com/Terms-and-conditions/'>Terms & Conditions</a><br><br>"
+      },
+      {
+        "key": "marketingAllowedFlag",
+        "type": "checkbox-custom",
+        "default": true
+      },
+      {
+        "type": "help",
+        "helpvalue": "*Indicates mandatory field"
+      },
+      {
+        "type": "submit",
+        "title": "Register"
+      }
+    ],
+    "schemaTemplate": {
+      "type": "object",
+      "required": [
+        "title",
+        "firstName",
+        "lastName",
+        "email",
+        "password",
+        "postcode"
+      ],
+      "title": "Comment",
+      "properties": {
+        "title": {
+          "title": "Title*",
+          "type": "string",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "enum": []
+        },
+        "firstName": {
+          "title": "First Name*",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "lastName": {
+          "title": "Last Name*",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "email": {
+          "title": "*Email address",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "password": {
+          "title": "*Create a password",
+          "minLength": 5,
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "confirmPassword": {
+          "title": "*Confirm password",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "postcode": {
+          "title": "*Postcode",
+          "type": "string",
+          "pattern": "^[a-zA-Z]{1,2}[0-9][0-9a-zA-Z]? ?[0-9][a-zA-Z]{2}$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "marketingAllowedFlag": {
+          "title": "Recieve offers",
+          "type": "boolean"
+        }
+      }
+    },
+    "view": {
+      "templateUrl": "Pages/Register.html"
+    }
+  },
+  {
+    "pageIndex": 5,
+    "clubType": 2,
+    "name": "RegisterAccount",
+    "url": "",
+    "formType": "1",
+    "formTemplate": [
+      {
+        "type": "help",
+        "helpvalue": "<h2>Address</h2>",
+        "htmlClass": "address-label"
+      },
+      {
+        "type": "help",
+        "helpvalue": "Tell us how to contact you and where to post your welcome letter and personalised Morrisons More Card to.",
+        "htmlClass": "address-description-label"
+      },
+      {
+        "type": "help",
+        "helpvalue": "Select an address from the list below or",
+        "htmlClass": "address-description-label",
+        "condition": "!model.addressFound && !model.addressToEnter"
+      },
+      {
+        "type": "button",
+        "title": "enter your address manually.",
+        "htmlClass": "anchor-address-manually",
+        "onClick": "enterUserAddress()",
+        "condition": "!model.addressFound && !model.addressToEnter"
+      },
+      {
+        "key": "postcode",
+        "htmlClass": "postcode-wrapper",
+        "fieldHtmlClass": "postcode-field"
+      },
+      {
+        "type": "button",
+        "title": "Find Address",
+        "icon": "glyphicon glyphicon-icon-exclamation-sign",
+        "htmlClass": "find-button-wrapper",
+        "fieldHtmlClass": "find-button-field",
+        "onClick": "findUserAddress()"
+      },
+      {
+        "type": "section",
+        "title": "Address",
+        "htmlClass": "address-section-wrapper",
+        "condition": "model.addressFound || model.addressToEnter",
+        "items": [
+          {
+            "type": "section",
+            "htmlClass": "address1-wrapper",
+            "fieldHtmlClass": "address1-field",
+            "items": [
+              "address1",
+              "address2",
+              "address3",
+              "city",
+              "postcode"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "help",
+        "helpvalue": "<h2>Personal Details</h2>",
+        "htmlClass": "personal-details-label"
+      },
+      {
+        "type": "section",
+        "title": "Personal Details",
+        "htmlClass": "personal-details-section",
+        "items": [
+          {
+            "type": "section",
+            "title": "datetime-birth-section",
+            "htmlClass": "datetime-birth-section",
+            "items": [
+              {
+                "title": "Date of Birth*",
+                "htmlClass": "date-of-birth-label"
+              },
+              {
+                "notitle": true,
+                "key": "dayOfBirth",
+                "htmlClass": "day-of-birth"
+              },
+              {
+                "notitle": true,
+                "key": "monthOfBirth",
+                "htmlClass": "month-of-birth"
+              },
+              {
+                "notitle": true,
+                "key": "yearOfBirth",
+                "htmlClass": "year-of-birth"
+              }
+            ]
+          },
+          {
+            "type": "section",
+            "title": "gender-section",
+            "htmlClass": "gender-section",
+            "items": [
+              {
+                "key": "gender",
+                "type": "radios-inline",
+                "title": "Gender",
+                "htmlClass": "gender-radiobutton-wrapper",
+                "fieldHtmlClass": "gender-radiobutton-field",
+                "titleMap": [
+                  {
+                    "value": "M",
+                    "name": "male"
+                  },
+                  {
+                    "value": "F",
+                    "name": "female"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "mobilePhone"
+          },
+          {
+            "key": "phoneNumber"
+          }
+        ]
+      },
+      {
+        "type": "help",
+        "helpvalue": "<h2>Household Information</h2>The information helps us to understand the products you will never buy so we can send you offers and promotions that are relevant for you.",
+        "htmlClass": "house-hold-label"
+      },
+      {
+        "key": "householdSize",
+        "htmlClass": "house-hold-size"
+      },
+      {
+        "key": "firstLineDietaryRequirements",
+        "type": "checkboxes-inline",
+        "title": "Dietary requirements",
+        "htmlClass": "first-line-dietary-requirements",
+        "titleMap": [
+          {
+            "value": "Diabetic",
+            "name": "Diabetic"
+          },
+          {
+            "value": "Vegetarian",
+            "name": "Vegetarian"
+          },
+          {
+            "value": "Vegan",
+            "name": "Vegan"
+          }
+        ]
+      },
+      {
+        "key": "secondLineDietaryRequirements",
+        "type": "checkboxes-inline",
+        "htmlClass": "second-line-dietary-requirements",
+        "titleMap": [
+          {
+            "value": "Gluten Free",
+            "name": "Gluten Free"
+          },
+          {
+            "value": "Teetotal",
+            "name": "Teetotal"
+          },
+          {
+            "value": "Coeliac",
+            "name": "Coeliac"
+          }
+        ],
+        "fieldHtmlClass": "continue-button-field"
+      },
+      {
+        "type": "help",
+        "helpvalue": "*Indicates mandatory field",
+        "htmlClass": "mandatory-description-label"
+      },
+      "recieveOffers",
+      {
+        "type": "submit",
+        "title": "Continue",
+        "htmlClass": "continue-button-wrapper",
+        "fieldHtmlClass": "continue-button-field"
+      }
+    ],
+    "schemaTemplate": {
+      "type": "object",
+      "required": [
+        "postcode",
+        "houseHoldNumber",
+        "address1",
+        "city",
+        "postcode2",
+        "dayOfBirth",
+        "monthOfBirth",
+        "yearOfBirth",
+        "mobilePhone"
+      ],
+      "title": "RegisterAccount",
+      "properties": {
+        "postcode": {
+          "title": "Postcode*",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "address1": {
+          "title": "Address Line 1*",
+          "type": "string"
+        },
+        "address2": {
+          "title": "Address Line 2",
+          "type": "string"
+        },
+        "address3": {
+          "title": "Address Line 3",
+          "type": "string"
+        },
+        "city": {
+          "title": "City*",
+          "type": "string"
+        },
+        "postcode2": {
+          "title": "Postcode*",
+          "type": "string",
+          "pattern": "^[a-zA-Z]{1,2}[0-9][0-9a-zA-Z]? ?[0-9][a-zA-Z]{2}$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "dayOfBirth": {
+          "type": "string",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "enum": [
+          ]
+        },
+        "monthOfBirth": {
+          "type": "string",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "enum": [
+          ]
+        },
+        "yearOfBirth": {
+          "type": "string",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "enum": [
+          ]
+        },
+        "genderMale": {
+          "title": "Male",
+          "type": "boolean"
+        },
+        "genderFemale": {
+          "title": "Female",
+          "type": "boolean"
+        },
+        "mobilePhone": {
+          "title": "Moble Telephone*",
+          "type": "string",
+          "pattern": "^[0-9 +-]{8,32}$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "phoneNumber": {
+          "title": "Home Telephone",
+          "type": "string",
+          "pattern": "^[0-9 +-]{8,32}$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "householdSize": {
+          "type": "string",
+          "title": "No. of people in household",
+          "enum": [
+          ]
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["M", "F"]
+        }
+      }
+    },
+    "view": {
+      "templateUrl": "Pages/Register.Account.html"
+    }
+  },
+  {
+    "pageIndex": 6,
+    "clubType": 2,
+    "name": "RegisterClub",
+    "url": "",
+    "formType": "1",
+    "formTemplate": [
+      {
+        "type": "help",
+        "helpvalue": "<h2>How I want to receive my vouchers?</h2>",
+        "htmlClass": "personal-details-label"
+      },
+      {
+        "key": "recieveVouchersOptions",
+        "type": "radios",
+        "notitle": true,
+        "condition": "!model.leaveClub",
+        "titleMap": [
+          {
+            "value": "In-Store",
+            "name": "Receive my vouchers in-store at the till"
+          },
+          {
+            "value": "Online",
+            "name": "Receive my vouchers as an e-code to use online"
+          }
+        ]
+      },
+      {
+        "type": "radios",
+        "notitle": true,
+        "readonly": true,
+        "condition": "model.leaveClub",
+        "titleMap": [
+          {
+            "value": "In-Store",
+            "name": "Receive my vouchers in-store at the till"
+          },
+          {
+            "value": "Online",
+            "name": "Receive my vouchers as an e-code to use online"
+          }
+        ]
+      },
+      {
+        "type": "help",
+        "helpvalue": "<div>If you no longer wish to be a Christmas Saver please tick the box below and submit. You can do this anytime before 31st October 2017. Any Christmas Savings will be moved back into your Morrisons More account as More Points. You will no receive a Christmas Save bonus if you choose to opt out.</div>",
+        "htmlClass": "join-club-explanation"
+      },
+      {
+        "key": "leaveClub",
+        "type": "checkbox-custom",
+        "title": "Opt out of Christmas Savers"
+      },
+      {
+        "type": "submit",
+        "title": "Submit"
+      },
+      "recieveOffers"
+    ],
+    "schemaTemplate": {
+      "type": "object",
+      "required": [
+        "recieveVouchersOptions"
+      ],
+      "properties": {
+        "recieveVouchersOptions": {
+          "type": "string",
+          "enum": [
+            "In-Store", "Online"
+          ]
+        },
+        "leaveClub": {
+          "type": "boolean"
+        }
+      }
+    },
+    "view": {
+      "templateUrl": "Pages/Register.Club.html"
+    }
+  },
+  {
+    "pageIndex": 7,
+    "clubType": 2,
+    "name": "EditClub",
+    "formType": "2",
+    "url": "",
+    "formTemplate": [
+      {
+        "type": "help",
+        "helpvalue": "<h2>How I want to receive my vouchers?</h2>",
+        "htmlClass": "personal-details-label"
+      },
+      {
+        "key": "recieveVouchersOptions",
+        "type": "radios",
+        "notitle": true,
+        "condition": "!model.leaveClub",
+        "titleMap": [
+          {
+            "value": "In-Store",
+            "name": "Receive my vouchers in-store at the till"
+          },
+          {
+            "value": "Online",
+            "name": "Receive my vouchers as an e-code to use online"
+          }
+        ]
+      },
+      {
+        "type": "radios",
+        "notitle": true,
+        "readonly": true,
+        "condition": "model.leaveClub",
+        "titleMap": [
+          {
+            "value": "In-Store",
+            "name": "Receive my vouchers in-store at the till"
+          },
+          {
+            "value": "Online",
+            "name": "Receive my vouchers as an e-code to use online"
+          }
+        ]
+      },
+      {
+        "type": "help",
+        "helpvalue": "<div>If you no longer wish to be a Christmas Saver please tick the box below and submit. You can do this anytime before 31st October 2017. Any Christmas Savings will be moved back into your Morrisons More account as More Points. You will no receive a Christmas Save bonus if you choose to opt out.</div>",
+        "htmlClass": "join-club-explanation"
+      },
+      {
+        "key": "leaveClub",
+        "type": "checkbox-custom",
+        "title": "Opt out of Christmas Savers"
+      },
+      {
+        "type": "submit",
+        "title": "Submit"
+      },
+      "recieveOffers"
+    ],
+    "schemaTemplate": {
+      "type": "object",
+      "required": [
+        "recieveVouchersOptions"
+      ],
+      "properties": {
+        "recieveVouchersOptions": {
+          "type": "string",
+          "enum": [
+            "In-Store", "Online"
+          ]
+        },
+        "leaveClub": {
+          "type": "boolean"
+        }
+      }
+    },
+    "view": {
+      "templateUrl": "Pages/Register.Club.html"
+    }
+  },
+  {
+    "pageIndex": 8,
+    "clubType": 2,
+    "name": "PersonalDetails",
+    "formType": "2",
+    "url": "",
+    "formTemplate": [
+      {
+        "type": "help",
+        "helpvalue": "<h2>Personal Information</h2>",
+        "htmlClass": "personal-details-label"
+      },
+      {
+        "key": "salutation"
+      },
+      {
+        "key": "firstName"
+      },
+      {
+        "key": "lastName"
+      },
+      {
+        "type": "section",
+        "title": "Personal Details",
+        "htmlClass": "personal-details-section",
+        "items": [
+          {
+            "type": "section",
+            "title": "datetime-birth-section",
+            "htmlClass": "datetime-birth-section",
+            "items": [
+              {
+                "title": "Date of Birth*",
+                "htmlClass": "date-of-birth-label"
+              },
+              {
+                "notitle": true,
+                "key": "dayOfBirth",
+                "htmlClass": "day-of-birth"
+              },
+              {
+                "notitle": true,
+                "key": "monthOfBirth",
+                "htmlClass": "month-of-birth"
+              },
+              {
+                "notitle": true,
+                "key": "yearOfBirth",
+                "htmlClass": "year-of-birth"
+              }
+            ]
+          },
+          {
+            "type": "section",
+            "title": "gender-section",
+            "htmlClass": "gender-section",
+            "items": [
+              {
+                "key": "gender",
+                "type": "radios-inline",
+                "title": "Gender",
+                "htmlClass": "gender-radiobutton-wrapper",
+                "fieldHtmlClass": "gender-radiobutton-field",
+                "titleMap": [
+                  {
+                    "value": "M",
+                    "name": "male"
+                  },
+                  {
+                    "value": "F",
+                    "name": "female"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "mobilePhone"
+          },
+          {
+            "key": "phoneNumber"
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "title": "Address",
+        "htmlClass": "address-section-wrapper",
+        "items": [
+          {
+            "type": "section",
+            "htmlClass": "address1-wrapper",
+            "fieldHtmlClass": "address1-field",
+            "items": [
+              "address1",
+              "address2",
+              "address3",
+              "city",
+              "postcode"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "householdSize",
+        "htmlClass": "house-hold-size"
+      },
+      {
+        "key": "firstLineDietaryRequirements",
+        "type": "checkboxes-inline",
+        "title": "Dietary requirements",
+        "htmlClass": "first-line-dietary-requirements",
+        "titleMap": [
+          {
+            "value": "Diabetic",
+            "name": "Diabetic"
+          },
+          {
+            "value": "Vegetarian",
+            "name": "Vegetarian"
+          },
+          {
+            "value": "Vegan",
+            "name": "Vegan"
+          }
+        ]
+      },
+      {
+        "key": "secondLineDietaryRequirements",
+        "type": "checkboxes-inline",
+        "htmlClass": "second-line-dietary-requirements",
+        "titleMap": [
+          {
+            "value": "Gluten Free",
+            "name": "Gluten Free"
+          },
+          {
+            "value": "Teetotal",
+            "name": "Teetotal"
+          },
+          {
+            "value": "Coeliac",
+            "name": "Coeliac"
+          }
+        ],
+        "fieldHtmlClass": "dietary-wrapper-field"
+      },
+      {
+        "type": "help",
+        "helpvalue": "*Indicates mandatory field",
+        "htmlClass": "mandatory-description-label"
+      },
+      "recieveOffers",
+      {
+        "type": "submit",
+        "title": "Confirm",
+        "htmlClass": "continue-button-wrapper",
+        "fieldHtmlClass": "continue-button-field"
+      }
+    ],
+    "schemaTemplate": {
+      "type": "object",
+      "required": [
+        "salutation",
+        "firstName",
+        "lastName",
+        "postcode",
+        "houseHoldNumber",
+        "address1",
+        "city",
+        "postcode2",
+        "dayOfBirth",
+        "monthOfBirth",
+        "yearOfBirth",
+        "mobilePhone"
+      ],
+      "title": "RegisterAccount",
+      "properties": {
+        "salutation": {
+          "title": "Title*",
+          "type": "string",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "enum": [
+          ]
+        },
+        "firstName": {
+          "title": "First Name*",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "lastName": {
+          "title": "Last Name*",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "postcode": {
+          "title": "Postcode*",
+          "type": "string",
+          "pattern": "^[a-zA-Z]{1,2}[0-9][0-9a-zA-Z]? ?[0-9][a-zA-Z]{2}$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "address1": {
+          "title": "Address Line 1*",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "address2": {
+          "title": "Address Line 2",
+          "type": "string"
+        },
+        "address3": {
+          "title": "Address Line 3",
+          "type": "string"
+        },
+        "city": {
+          "title": "City*",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "type": "string"
+        },
+        "postcode2": {
+          "title": "Postcode*",
+          "type": "string",
+          "pattern": "^[a-zA-Z]{1,2}[0-9][0-9a-zA-Z]? ?[0-9][a-zA-Z]{2}$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "dayOfBirth": {
+          "type": "string",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "enum": [
+          ]
+        },
+        "monthOfBirth": {
+          "type": "string",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "enum": [
+          ]
+        },
+        "yearOfBirth": {
+          "type": "string",
+          "validationMessage": "You have entered an invalid field. Please check and try again.",
+          "enum": [
+          ]
+        },
+        "mobilePhone": {
+          "title": "Moble Telephone*",
+          "type": "string",
+          "pattern": "^[0-9 +-]{8,32}$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "phoneNumber": {
+          "title": "Home Telephone",
+          "type": "string",
+          "pattern": "^[0-9 +-]{8,32}$",
+          "validationMessage": "You have entered an invalid field. Please check and try again."
+        },
+        "householdSize": {
+          "type": "string",
+          "title": "No. of people in household",
+          "enum": [
+          ]
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["M", "F"]
+        }
+      }
+    },
+    "view": {
+      "templateUrl": "Pages/Personal.Details.html"
+    }
+  }
+]

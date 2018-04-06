@@ -10,9 +10,9 @@ server:
 
 database:
   driverClass: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/exampledw
+  url: jdbc:postgresql://localhost:5432/bankdb
   user: postgres
-  password: Pa55w0rd!
+  password: password
   properties:
     charSet: UTF-8
     maxWaitForConnection: 1s

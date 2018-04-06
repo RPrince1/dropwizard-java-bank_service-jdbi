@@ -2,7 +2,8 @@ package steps;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.morrisons.base.dropwizard.BaseDWApplication;
-import com.morrisons.base.dropwizard.model.CustomerTransactions;
+
+import com.morrisons.base.dropwizard.model.Banks;
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -108,8 +109,8 @@ public class CommonSteps {
     public void iExpectTransactionInTheResponse(int count) throws Throwable {
         String responseString = (String) sharedData.variables.get(HTTP_RESPONSE_ENTITY_STRING);
 
-        CustomerTransactions customerTransactions = fromJson(responseString, CustomerTransactions.class);
-        int numberOfTransactionsInResponse = customerTransactions.getTransactions().size();
+        Banks customerTransactions = fromJson(responseString, Banks.class);
+        int numberOfTransactionsInResponse = customerTransactions.getBanks().size();
 
         assertEquals(count, numberOfTransactionsInResponse);
     }

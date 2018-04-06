@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class CustomerTransactions {
+public class Banks {
 
-    private List<CustomerTransaction> transactions;
+    private List<Bank> banks;
 }

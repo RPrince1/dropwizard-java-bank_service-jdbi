@@ -1,0 +1,254 @@
+[
+  {
+    "pageIndex": 1,
+    "clubType": 1,
+    "name": "Root",
+    "url": "",
+    "formTemplate": [],
+    "schemaTemplate": {},
+    "view": {
+      "template": "<div>LandingPage - Baby Club</div>"
+    }
+  },
+  {
+    "pageIndex": 2,
+    "clubType": 1,
+    "name": "Root",
+    "url": "",
+    "formTemplate": [],
+    "schemaTemplate": {},
+    "view": {
+      "template": "<div>LandingPage - Baby Club</div>"
+    }
+  },
+  {
+    "pageIndex": 3,
+    "clubType": 1,
+    "name": "Login",
+    "url": "",
+    "formTemplate": [],
+    "schemaTemplate": {},
+    "view": {
+      "template": "<div class=\"homepageBox \" ng-controller=\"App.Login.Controller as vm\"><h2 class=\"panel-title\">Log in to Your Account - baby club</h2><form name=\"lgnSchema\" sf-schema=\"vm.schema\" sf-form=\"vm.form\" sf-model=\"vm.model\" sf-options=\"{ validateOnRender: false }\" ng-submit=\"vm.onSubmit(lgnSchema)\"></form></div>"
+    }
+  },
+  {
+    "pageIndex": 4,
+    "clubType": 1,
+    "name": "Register",
+    "formTemplate": [
+      {
+        "type": "help",
+        "helpvalue": "<div class=\"form-group\">Tell us how to contact you and where to post your welcome letter and personalised Morrisons More Card to.</div>"
+      },
+      "postcode",
+      {
+        "type": "button",
+        "title": "find address",
+        "icon": "glyphicon glyphicon-icon-exclamation-sign",
+        "onClick": "findUserAddress()"
+      },
+      {
+        "type": "section",
+        "title": "Address",
+        "htmlClass": "row",
+        "condition": "model.addressFound",
+        "items": [
+          {
+            "type": "section",
+            "htmlClass": "col-xs-12",
+            "items": [
+              "address1"
+            ]
+          },
+          {
+            "type": "section",
+            "htmlClass": "col-xs-12",
+            "items": [
+              "address2"
+            ]
+          },
+          {
+            "type": "section",
+            "htmlClass": "col-xs-12",
+            "items": [
+              "address3"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "title": "Personal Details",
+        "htmlClass": "row",
+        "items": [
+          {
+            "type": "section",
+            "htmlClass": "col-xs-3",
+            "items": [
+              "dayOfBirth"
+            ]
+          },
+          {
+            "type": "section",
+            "htmlClass": "col-xs-3",
+            "items": [
+              "monthOfBirth"
+            ]
+          },
+          {
+            "type": "section",
+            "htmlClass": "col-xs-3",
+            "items": [
+              "yearOfBirth"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "section",
+        "title": "Personal Details",
+        "htmlClass": "row",
+        "items": [
+          {
+            "type": "section",
+            "htmlClass": "col-xs-3",
+            "items": [
+              "genderMale"
+            ]
+          },
+          {
+            "type": "section",
+            "htmlClass": "col-xs-3",
+            "items": [
+              "genderFemale"
+            ]
+          }
+        ]
+      },
+      "mobilePhone",
+      "homePhone",
+      {
+        "type": "help",
+        "helpvalue": "<div class=\"form-group\">Tell us how to contact you and where to post your welcome letter and personalised Morrisons More Card to.</div>"
+      },
+      "houseHoldNumber",
+      "recieveOffers",
+      {
+        "type": "submit",
+        "title": "Next"
+      }
+    ],
+    "schemaTemplate": {
+      "type": "object",
+      "required": [
+        "postcode",
+        "houseHoldNumber",
+        "address1",
+        "address2",
+        "address3",
+        "dayOfBirth",
+        "monthOfBirth",
+        "yearOfBirth",
+        "mobilePhone"
+      ],
+      "title": "RegisterAccount",
+      "properties": {
+        "postcode": {
+          "title": "Postcode*",
+          "type": "string",
+          "minLength": 2
+
+        },
+        "address1": {
+          "title": "Address Line 1*",
+          "type": "string",
+          "minLength": 2
+        },
+        "address2": {
+          "title": "Address Line 2*",
+          "type": "string",
+          "minLength": 2
+        },
+        "address3": {
+          "title": "Address Line 3*",
+          "type": "string",
+          "minLength": 2
+        },
+        "dayOfBirth": {
+          "title": "Day of birth*",
+          "type": "string",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        },
+        "monthOfBirth": {
+          "type": "string",
+          "enum": [
+            "January",
+            "Febuary",
+            "March",
+            "April",
+            "May"
+          ]
+        },
+        "yearOfBirth": {
+          "type": "string",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        },
+        "genderMale": {
+          "title": "Male",
+          "type": "boolean"
+        },
+        "genderFemale": {
+          "title": "Female",
+          "type": "boolean"
+        },
+        "mobilePhone": {
+          "title": "*Moble Telephone",
+          "type": "string"
+        },
+        "homePhone": {
+          "title": "Home Telephone",
+          "type": "string",
+          "minLength": 2
+        },
+        "houseHoldNumber": {
+          "type": "string",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        }
+      }
+    },
+    "url": "",
+    "view": {
+      "template": "<div class=\"step1\">Register for Baby<form name=\"rgnSchema\" sf-schema=\"schema\" sf-form=\"form\" sf-model=\"model\" sf-options=\"{ validateOnRender: false }\" ng-submit=\"onSubmit(rgnSchema)\"></form></div>"
+    }
+  },
+  {
+    "pageIndex": 5,
+    "clubType": 1,
+    "name": "Register",
+    "formTemplate": [],
+    "schemaTemplate": {},
+    "url": "",
+    "view": {
+      "template": "<div class=\"step1\">Register for Baby<form name=\"rgnSchema\" sf-schema=\"schema\" sf-form=\"form\" sf-model=\"model\" sf-options=\"{ validateOnRender: false }\" ng-submit=\"onSubmit(rgnSchema)\"></form></div>"
+    }
+  }
+]
