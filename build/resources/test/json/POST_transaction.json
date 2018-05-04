@@ -1,5 +1,6 @@
 {
-  "transactionId": "f3508163-828f-46e0-877c-118b359da9ef",
-  "accountId": "123456789",
-  "amount": 50
+  "name": "John's Bank",
+  "address": "12 Cobble Road",
+  "sortcode": 223344,
+  "branchNumber": 2
 }

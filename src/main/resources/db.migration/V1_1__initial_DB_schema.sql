@@ -8,7 +8,6 @@ CREATE TABLE bank
   address               CHARACTER VARYING NOT NULL,
   sortcode              INT PRIMARY KEY,
   branch_number         INT
-
 )
 WITH (
 OIDS = FALSE

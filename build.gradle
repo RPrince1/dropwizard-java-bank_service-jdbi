@@ -20,7 +20,7 @@ allprojects {
 }
 
 task jarIt(type: OneJar) {
-    mainClass = 'com.morrisons.base.dropwizard'
+    mainClass = 'com.morrisons.base.dropwizard.BaseDWApplication'
 }
  
 task wrapper(type: Wrapper) {

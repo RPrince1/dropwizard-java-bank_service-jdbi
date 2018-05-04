@@ -1,12 +1,13 @@
 --Drop Tables if Exist
-DROP TYPE IF EXISTS customer_transactions;
+DROP TYPE IF EXISTS bank;
 
 -- Create Table:
-CREATE TABLE customer_transactions
+CREATE TABLE bank
 (
-  transaction_id	    UUID PRIMARY KEY,
-  account_id            CHARACTER VARYING NOT NULL,
-  amount                DECIMAL
+  name	                CHARACTER VARYING NOT NULL,
+  address               CHARACTER VARYING NOT NULL,
+  sortcode              INT PRIMARY KEY,
+  branch_number         INT
 )
 WITH (
 OIDS = FALSE
